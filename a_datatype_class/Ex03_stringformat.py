@@ -10,9 +10,14 @@
 #       성능(속도)는 %이 더 빠르다고는 하지만 코드가 깔끔하게 하는 것이 더 중요하다고 하고는
 #       어느 것으로 선택하라고는 안 나옴
 
+msg = '{0}님 오늘도 행복햐~ {1}로부터'
+print(msg.format('홍길동', '길자'))
 
+msg = '{1}님 오늘도 행복햐~ {0}로부터'
+print(msg.format('홍길동', '길자'))
 
-
+msg = '{to}님 오늘도 행복햐~ {by}로부터'
+print(msg.format(to='홍길동', by='길자'))
 
 # [참고] http://pyformat.info
 
@@ -20,6 +25,10 @@
 name = '홍길동'
 age = 22
 height = 170.456
+
+print('%s님은 %d세이고 신장은 %.1fcm입니다' % (name, age, height))
+# %10.2f 총 10자리 중에서 소수점 둘째까지만. (그만큼 텍스트 공간을 확보한다)
+print('{}님은 {}세이고 신장은 {:.1f}cm입니다'.format(name, age, height))
 
 
 

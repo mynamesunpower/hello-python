@@ -3,8 +3,26 @@ t = True
 f = False
 n = None    # 다른 언어의  null 값과 유사
 
+# 논리 연산
+hungry = True
+sleepy = False
+none = None
+print(type(none)) # <class 'NoneType'>
+print(type(hungry)) # <class 'bool'>
+
+print(type(None)) # <class 'NoneType'>
+print(None) # None
+print(not None) # True
+print(none and hungry) # None
+print(none or hungry) # True
 
 
+print(hungry) # True
+print(not hungry) # False
+print(hungry and sleepy) # False
+print(hungry & sleepy) # False
+print(hungry or sleepy) # True
+print(hungry | sleepy) # True
 
 
 """
@@ -20,17 +38,24 @@ n = None    # 다른 언어의  null 값과 유사
                     0                      False
                     None                   False
 
-
+"""
 if('아'):
-    print('True')
+    print('True') #
 else:
     print('False')
 
 if([]):
     print('True2')
 else:
-    print('False2')
-"""
+    print('False2') #
 
+if(0):
+    print('True3')
+else:
+    print('False3') #
 
+if(-1):
+    print('True4') #
+else:
+    print('False4')
 

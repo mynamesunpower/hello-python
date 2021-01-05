@@ -130,8 +130,11 @@ msg ='오늘도 행복도 하다'
     4) 문자열 전체 길이 구하기
     5) '도'라는 단어의 갯수 구하기
 """
-
-
+print(msg.index('행복'))
+#print(msg.index('가자'))
+print(msg.rfind('행복'))
+print(len(msg))
+print(msg.count('도'))
 
 
 # -----------------------------------------
@@ -143,27 +146,45 @@ msg ='오늘도 행복도 하다'
 #   s.strip() : 양쪽 공백 지우기
 
 msg = '  This is My Life  '
-
-
-
-
-
+print(msg.title())
+print(msg.strip())
+print(msg.upper())
+print(msg.lower())
+print(msg.lstrip())
+print(msg.rstrip())
+print(msg.strip())
 
 # -----------------------------------------
 #  (4-3) 문자열 관련 함수
 #   s.replace("a","b")  :  s 문자열에서 단어 a를 단어 b로 바꾸기
 #   s.split() : s 문자열을 공백으로 나누기
 #   s.split('z') : s 문자열을 z 기호로 나누기
-#   d.join(s) : d 단어를 s 문자열에 삽입
+#   d.join(s) : d 단어를 s 문자열에 삽입 (*******)
 
 msg = "우리는 독도를 지킨다"
 
+# 1. '독도'라는 단어를 '대한민국'으로 변경
+print(msg.replace('독도', '대한민국'))
+
+# 2. 공백을 기준으로 단어를 나누기
+print(msg.split())
+
+# 3. 각 글자마다 콤마 추가
+print(','.join(msg))
 
 
 
+#---------------기타-------------
+print(msg.startswith('우리')) # True
+print(msg.endswith('다')) # True
+print('45'.zfill(5)) # '00045'
 
 
+print("킹", "세종대왕님", "감사합니다", sep='★')
 
+class_name = 'introduction programming with python'
+for i in class_name:
+    if i == 'p':
+        i = i.upper()
 
-
-
+print(class_name)
