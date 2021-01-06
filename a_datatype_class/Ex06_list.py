@@ -17,6 +17,14 @@
 arr = []                # 비워져 있는 리스트 생성
 arr = [1,2,3,4,5]
 
+arr.append(10)
+print(arr)
+arr.append('hello')
+print(arr)
+print(arr[0])
+print(arr[len(arr)-2])
+print(arr[len(arr)-1].upper())
+print(arr[len(arr)-1][0])
 """ [출력결과]
     [1, 2, 3, 4, 5, 10]
     [1, 2, 3, 4, 5, 10, 'hello']
@@ -34,8 +42,12 @@ arr = [1,2,3,4,5]
 
 
 # 이중 리스트 만들고 인덱싱하기
-
-
+print(arr)
+arr.append([])
+print(arr)
+arr[-1].append('korea')
+print(arr)
+print(arr[-1][0][-1])
 
 
 
@@ -46,6 +58,9 @@ arr = [1,2,3,4,5]
     (3) '판'이라는 글자만 추출
 """
 a = ['인천','부산',['전라','경상',['판교','부천']]]
+print(a[-1][1])
+print(a[-1][-1][-1])
+print(a[-1][-1][0][0])
 
 
 
@@ -60,10 +75,14 @@ a = ['인천','부산',['전라','경상',['판교','부천']]]
     (4) '광주'부터 '대구'까지 추출
 """
 a = ['인천','부산',['전라','경상'],['대전','광주','대구'], '서울','제주']
+print(a[1:4])
+print(a[3:])
+print(a[:5])
+print(a[3][1:])
 
-
-
-
+# 대전부터 제주까지
+b = ['인천','부산',['전라','경상'],['대전','광주','대구'], '서울',['제주','탐라']]
+print(b[3:6])
 
 # --------------------------------------------------------------------
 # (2) 리스트 연산자
@@ -71,6 +90,8 @@ a = ['인천','부산',['전라','경상'],['대전','광주','대구'], '서울
 a = ['독','도','는']
 b = ['대한민국','섬']
 
+print(a + b) # '독' '도' '는' '대한민국' '섬'
+print(a * 3) # '독' '도' '는' '독' '도' '는' '독' '도' '는'
 
 
 # --------------------------------------------------------------------
@@ -95,8 +116,22 @@ b = ['대한민국','섬']
     (6) 요소 1을 삭제 ( 1이 여러개인 경우 맨 앞에 하나만 삭제됨 )
     (7) 리스트 모든 요소를 삭제
 """
-a = [7, 2, 3, 5, 6] 
-
+a = [7, 2, 3, 5, 6]
+print('리스트 a', a)
+a.append(0)
+print('(1) 리스트 a에 0 요소 추가', a)
+print('(2) 리스트 a에 9를 추가하여 출력', a + [9])
+print('(2) 현재 리스트 a', a)
+a.insert(0, 1)
+print('(3) 0번째 요소로 1을 추가', a)
+a.insert(3, 1)
+print('(4) 3번째 요소로 1을 추가', a)
+a.pop()
+print('(5) 리스트 맨 마지막 요소를 꺼낸다', a)
+a.remove(1)
+print('(6) 요소 1을 삭제(여러개라면 맨 앞만)', a)
+a.clear()
+print('(7) 리스트 모든 요소를 삭제', a)
 
 
 
@@ -121,8 +156,17 @@ print()
 """
 a = [3,5,4,8,0]
 b = [1,2]
-
-
+print('리스트 a', a)
+a.reverse()
+print('a의 모든 요소를 거꾸로', a)
+a.sort()
+print('a 정렬하기', a)
+a.extend(b)
+print('a에 리스트 b 더하기', a)
+# del a[0:2]
+for i in range(2):
+    a.remove(a[0])
+print('a의 0번째부터 1번째까지 삭제', a)
 
 
 
@@ -130,4 +174,65 @@ b = [1,2]
 #  (4) 리스트 요소 변경
 #       - 2번째 요소를 'z'로 변경
 #       - 0번째부터 1번째 요소를 'k'와 'o'로 변경
+a = [3, 5, 4, 8, 0]
+b = ['k', 'o']
+a[2] = 'z'
+print(a)  # [3, 5, 'z', 8, 0]
 
+# a[:1] = ['k', 'o']
+a[0] = ['k', 'o']
+print(a)  # ['k', 'o', 'z', 8, 0]
+
+# ---------------------------------------
+#  (5) 리스트 복사
+#       1) 얕은 복사
+#       2) 깊은 복사
+
+# ---- 얕은 복사
+a = [3, 5, 4, 8, 0]
+b = a
+print(b)
+print(a is b)  # True
+b[2] = 'Hello'
+print(a, b)  # [3, 5, 'Hello', 8, 0] [3, 5, 'Hello', 8, 0]
+
+# ---- 깊은 복사
+a = [3, 5, 4, 8, 0]
+b = a[:]
+print(b)
+print(a is b)  # False
+b[2] = 'Hello'
+print(a, b)  # [3, 5, 4, 8, 0] [3, 5, 'Hello', 8, 0]
+
+# ---- 깊은 복사 2
+a = [3, 5, 4, 8, 0]
+b = a.copy()
+print(b)
+print(a is b) # False
+b[2] = 'Hello'
+print(a, b)
+
+# ---- 깊은 복사 3
+from copy import copy
+a = [3, 5, 4, 8, 0]
+b = copy(a)  # [3, 5, 4, 8, 0] [3, 5, 'Hello', 8, 0]
+print(b)
+print(a is b)
+b[2] = 'Hello'
+print(a, b)  # [3, 5, 4, 8, 0] [3, 5, 'Hello', 8, 0]
+
+first = ["egg", "salad", "bread", "soup", "canafe"]
+second = ["fish", "lamb", "pork", "beef", "chicken"]
+third = ["apple", "banana", "orange", "grape", "mango"]
+order = [first, second, third]
+john = [order[0][:-2], second[1::3], third[0]]
+# [canafe, soup], [lamb, chicken], [apple]
+del john[2]
+john.extend([order[2][0:1]])
+print(john)
+
+a = [1, 2, 3, 5]
+b = ['a', 'b', 'c','d','e']
+a.append('g')
+b.append(6)
+print('g' in b, len(b))
