@@ -23,12 +23,24 @@ for i in range(1, 10):
 
 # -----------------------------------------
 # print() 함수
+print('안녕'+'친구')  # 안녕친구
+print('안녕', '친구')  # 안녕 친구
+print('안녕' '친구')  # 안녕친구
+for i in range(2, 8):
+    print(i, end=', ' if i < 7 else "") # 옵션이 없으면 자동 개행
+print('----------------------')
 
+print(','.join(str(i) for i in range(2, 8)))
 
 # -------------------------------------------------------
 # 명령행 매개변수 받기 - java의 main() 함수의 인자
 # [ 콘솔에서 실행 ] python Ex10_stdio.py ourserver scott tiger
 #                                   0      1      2      3
+import sys
+args = sys.argv[1:]
+for i in args:
+    print(i)
+print('서버 연결')
 
 # 1
 a = []
