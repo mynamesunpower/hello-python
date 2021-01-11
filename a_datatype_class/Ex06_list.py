@@ -195,6 +195,7 @@ print(b)
 print(a is b)  # True
 b[2] = 'Hello'
 print(a, b)  # [3, 5, 'Hello', 8, 0] [3, 5, 'Hello', 8, 0]
+print(id(a), id(b))
 
 # ---- 깊은 복사
 a = [3, 5, 4, 8, 0]

@@ -10,10 +10,31 @@ def case3():
     print('case-3')
 
 
+f = {'case1': case1, 'case2': case2, 'case3': case3}
+a = 'case3'
+f[a]()
 
 #---------------------------------------
 # 글로벌 변수와 지역변수
+# if True:
+#     test = '변수'
+# print(test)  # 변수
+# temp = '글로벌'
+#
+# def func():
+#     # print('0>', temp) 에러 발생
+#     temp = '로컬'
+#     print('1>', temp)  # 로컬
+# func()
+# print('2>', temp)  # 글로벌
 
+def func():
+    global temp
+    # print('0>', temp) 에러 발생
+    temp = '로컬'
+    print('1>', temp)  # 로컬
+func()
+print('2>', temp)  # 글로벌
 
 
 '''
@@ -26,7 +47,12 @@ def case3():
     
     종종 사용됨
 '''
+def f(x, y):
+    return x * y
+print(f(2, 3))
 
+f = lambda x, y: x * y
+print(f(2, 3))
 
 
 #-----------------------------------------------------------
@@ -41,8 +67,16 @@ def case3():
     
     파이썬 2.x에서는 많이 사용하던 함수이지만, 최근 문법의 복잡성으로 권장하지 않는 추세란다.
 """
+def calc(x):
+    return x**2
 
+ex = [1, 2, 3, 4, 5]
 
+print(list(map(calc, ex)))
 
+from functools import reduce
+def f(x, y):
+    return x * y
+print(reduce(f, range(1, 6))) # 리스트와 같은 자료형에 차례대로 함수를 적용하여 모든 값을 통합하는 함수
 
 
