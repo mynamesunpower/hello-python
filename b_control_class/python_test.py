@@ -1,4 +1,4 @@
-# 1
+# 1 프린트
 pin = '880122-1234567'
 birthday = '홍길동님 생년월일 : ' + pin[:6]
 gender = '성별 : ' + '남자' if pin[7] == '1' or '3' else '여자'
@@ -26,30 +26,26 @@ a = b = [1, 2, 3]
 a[1] = 4
 print(b)  # [1, 4, 3] 얕은 복사이기 때문에 a와 b는 객체를 동일한 주소를 가리키고 있다. 그렇기에 [1, 2, 3] 리스트 객체의 값을 변경해도 a와 b의 결과가 같아진다.
 
-# 6
+# 6 별 찍기
 print('\n'.join('*' * i for i in range(1, 6)))
 
-# 7
+# 7 애들 총점 찍기.
 kor_score = [77, 88, 76, 44, 56]
 math_score = [96, 99, 100, 55, 66]
 eng_score = [50, 60, 70, 80, 90]
 midterm_score = [kor_score, math_score, eng_score]
 
 from functools import reduce
-
-
 def sum(x, y):
     return x + y
-
 
 print('국어 점수 총점: {}, 평균: {}'.format(reduce(sum, kor_score), reduce(sum, kor_score) / len(kor_score)))
 print('수학 점수 총점: {}, 평균: {}'.format(reduce(sum, math_score), reduce(sum, math_score) / len(math_score)))
 print('영어 점수 총점: {}, 평균: {}'.format(reduce(sum, eng_score), reduce(sum, eng_score) / len(eng_score)))
-
 for i, (kor, math, eng) in list(enumerate(zip(kor_score, math_score, eng_score))):
-    print('{}번째 학생의 총점: {}'.format(i + 1, kor + math + eng))
+    print('{}번째 학생의 총점: {}, 평균: {:.2f}'.format(i + 1, kor + math + eng, (kor+math+eng)/3))
 
-# 8
+# 8 딕셔너리
 life = dict()
 for i in ['animal', 'plants', 'other']:
     life[i] = dict()
